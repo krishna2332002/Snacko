@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "985176320943",
+    "project_id": "snacko-b32f6",
+    "storage_bucket": "snacko-b32f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985176320943:android:0ae762a1cf59f036cf9d5a",
+        "android_client_info": {
+          "package_name": "com.example.snacko"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "985176320943-idfl6a46soqsaiv9hn28kaquhsmddcc7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAksFeTxA17o_MHbVC5T9ATRUU2EL3ZIU4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "985176320943-idfl6a46soqsaiv9hn28kaquhsmddcc7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

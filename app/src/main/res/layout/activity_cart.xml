@@ -48,102 +48,102 @@
                 android:elevation="4dp"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/card_background"
-                    android:orientation="horizontal">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_marginStart="16dp"-->
+<!--                    android:layout_marginTop="16dp"-->
+<!--                    android:layout_marginEnd="16dp"-->
+<!--                    android:background="@drawable/card_background"-->
+<!--                    android:orientation="horizontal">-->
 
-                    <TextView
-                        android:id="@+id/textView14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Total Item:"
-                        android:textColor="#483B28"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/textView14"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:text="Total Item:"-->
+<!--                        android:textColor="#483B28"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textStyle="bold" />-->
 
-                    <TextView
-                        android:id="@+id/totalItemFee"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000"
-                        android:textColor="#483B28"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
+<!--                    <TextView-->
+<!--                        android:id="@+id/totalItemFee"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="0000"-->
+<!--                        android:textColor="#483B28"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textStyle="bold" />-->
+<!--                </LinearLayout>-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/card_background"
-                    android:orientation="horizontal">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_marginStart="16dp"-->
+<!--                    android:layout_marginTop="4dp"-->
+<!--                    android:layout_marginEnd="16dp"-->
+<!--                    android:background="@drawable/card_background"-->
+<!--                    android:orientation="horizontal">-->
 
-                    <TextView
-                        android:id="@+id/textView15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Packaging:"
-                        android:textColor="#483B28"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/textView15"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:text="Packaging:"-->
+<!--                        android:textColor="#483B28"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textStyle="bold" />-->
 
-                    <TextView
-                        android:id="@+id/packagingFee"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000"
-                        android:textColor="#483B28"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
+<!--                    <TextView-->
+<!--                        android:id="@+id/packagingFee"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="0000"-->
+<!--                        android:textColor="#483B28"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textStyle="bold" />-->
+<!--                </LinearLayout>-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/card_background"
-                    android:orientation="horizontal">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_marginStart="16dp"-->
+<!--                    android:layout_marginTop="4dp"-->
+<!--                    android:layout_marginEnd="16dp"-->
+<!--                    android:background="@drawable/card_background"-->
+<!--                    android:orientation="horizontal">-->
 
-                    <TextView
-                        android:id="@+id/textView17"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Tax:"
-                        android:textColor="#483B28"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/textView17"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_weight="1"-->
+<!--                        android:text="Tax:"-->
+<!--                        android:textColor="#483B28"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textStyle="bold" />-->
 
-                    <TextView
-                        android:id="@+id/taxFee"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0000"
-                        android:textColor="#483B28"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
+<!--                    <TextView-->
+<!--                        android:id="@+id/taxFee"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="0000"-->
+<!--                        android:textColor="#483B28"-->
+<!--                        android:textSize="20dp"-->
+<!--                        android:textStyle="bold" />-->
+<!--                </LinearLayout>-->
 
-                <View
-                    android:id="@+id/view"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="4dp"
-                    android:background="#6C6262" />
+<!--                <View-->
+<!--                    android:id="@+id/view"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="1dp"-->
+<!--                    android:layout_marginStart="16dp"-->
+<!--                    android:layout_marginTop="4dp"-->
+<!--                    android:layout_marginEnd="16dp"-->
+<!--                    android:layout_marginBottom="4dp"-->
+<!--                    android:background="#6C6262" />-->
 
                 <LinearLayout
                     android:layout_width="match_parent"

@@ -1,29 +1,44 @@
 package com.example.snacko.Activities.Activity
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.snacko.Activities.Adapter.CategoryAdapter
 import com.example.snacko.Activities.Adapter.RecommendedAdapter
+import com.example.snacko.Activities.Adapter.RestaurantAdapter
 import com.example.snacko.Activities.Model.Category
 import com.example.snacko.Activities.Model.Food
+import com.example.snacko.Activities.Model.Restaurant
 import com.example.snacko.R
 import com.example.snacko.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import com.google.firestore.v1.FirestoreGrpc.FirestoreImplBase
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    lateinit var linearLayoutManager: LinearLayoutManager
-    lateinit var categoryList: ArrayList<Category>
-    lateinit var categoryAdapter:CategoryAdapter
-    lateinit var linearLayoutManager2: LinearLayoutManager
-    lateinit var recommendedList: ArrayList<Food>
-    lateinit var recommendedAdapter:RecommendedAdapter
+    private lateinit var linearLayoutManager: LinearLayoutManager
+    private lateinit var categoryList: ArrayList<Category>
+    private lateinit var restaurantList: ArrayList<Restaurant>
+    private lateinit var restaurantAdapter:RestaurantAdapter
+    private lateinit var categoryAdapter:CategoryAdapter
+    private lateinit var linearLayoutManager2: LinearLayoutManager
+    private lateinit var recommendedList: ArrayList<Food>
+    private lateinit var recommendedAdapter:RecommendedAdapter
+    private lateinit var fauth:FirebaseAuth
+    private lateinit var database:DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        fauth=FirebaseAuth.getInstance()
+        database=FirebaseDatabase.getInstance().reference
+
         categoryView()
         recommendedView()
+        restaurantView()
+
     }
 
     private fun recommendedView() {
@@ -48,6 +63,29 @@ class MainActivity : AppCompatActivity() {
         categoryList.add(Category("Donut","cat_5"))
         categoryAdapter=CategoryAdapter(this,categoryList)
         binding.categoryView.adapter = categoryAdapter
+    }
+    private fun restaurantView() {
+        restaurantList= arrayListOf()
+        linearLayoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        binding.restaurantView.layoutManager = linearLayoutManager
+        database.child("Restaurants").addValueEventListener(object :ValueEventListener{
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onDataChange(snapshot: DataSnapshot) {
+                restaurantList.clear()
+                for (dataSnapshot in snapshot.children) {
+                    val rest = dataSnapshot.getValue(Restaurant::class.java)
+                    if (rest != null) {
+                        restaurantList.add(rest)
+                    }
+                }
+                restaurantAdapter.notifyDataSetChanged()
+            }
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+        })
+        restaurantAdapter=RestaurantAdapter(this,restaurantList)
+        binding.restaurantView.adapter = restaurantAdapter
     }
 
 }

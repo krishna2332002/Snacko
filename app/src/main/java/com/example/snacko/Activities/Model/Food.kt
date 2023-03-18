@@ -8,5 +8,5 @@ data class Food(
     val star:Int?=null,
     val timer:Int?=null,
     val calories:Int?=null,
-    val numberInCart:Int?= null
+    var numberInCart:Int?= null
 )

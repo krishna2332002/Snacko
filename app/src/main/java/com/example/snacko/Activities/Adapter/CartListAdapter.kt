@@ -27,13 +27,21 @@ class CartListAdapter (
         holder.itemView.apply {
             itemName.setText(cartItem.title)
             oneItemPrice.setText(cartItem.fee.toString())
+            allItemPrice.setText((cartItem.fee?.times(cartItem.numberInCart!!)).toString())
+            currentNoOfItem.setText(cartItem.numberInCart.toString())
 
+            plusCartBtn.setOnClickListener{
+                cartItem.numberInCart = cartItem.numberInCart?.plus(1)
+            }
+            minusCartBtn.setOnClickListener{
+                cartItem.numberInCart = cartItem.numberInCart?.minus(1)
+            }
             var drawableResourceId=holder.itemView.context.resources.getIdentifier(cartItem.pic,"drawable",holder.itemView.context.packageName)
             Glide.with(this)
                 .load(drawableResourceId)
                 .override(1000, 1000)
                 .placeholder(R.drawable.burger)
-                .into(categoryPic)
+                .into(itemPic)
         }
     }
 
