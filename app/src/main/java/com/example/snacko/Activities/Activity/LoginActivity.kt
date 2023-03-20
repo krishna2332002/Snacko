@@ -73,7 +73,7 @@ class LoginActivity : AppCompatActivity() {
         fauth.signInWithCredential(credential)
             .addOnCompleteListener(OnCompleteListener<AuthResult?> { task ->
                 if (task.isSuccessful) {
-                    val i = Intent(this, MainActivity::class.java)
+                    val i = Intent(this, SetUpProfile::class.java)
                     startActivity(i)
                     finish()
                 } else {

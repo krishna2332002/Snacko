@@ -1,8 +1,10 @@
 package com.example.snacko.Activities.Activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.snacko.Activities.Adapter.CategoryAdapter
 import com.example.snacko.Activities.Adapter.RecommendedAdapter
@@ -10,6 +12,7 @@ import com.example.snacko.Activities.Adapter.RestaurantAdapter
 import com.example.snacko.Activities.Model.Category
 import com.example.snacko.Activities.Model.Food
 import com.example.snacko.Activities.Model.Restaurant
+import com.example.snacko.Activities.Model.User
 import com.example.snacko.R
 import com.example.snacko.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -28,17 +31,53 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recommendedAdapter:RecommendedAdapter
     private lateinit var fauth:FirebaseAuth
     private lateinit var database:DatabaseReference
+    private lateinit var user: User
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         fauth=FirebaseAuth.getInstance()
         database=FirebaseDatabase.getInstance().reference
+        database.child("Profile").child(fauth.currentUser!!.uid).addListenerForSingleValueEvent(object:ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists())
+                {
+                    Toast.makeText(applicationContext, " Info", Toast.LENGTH_SHORT).show()
+                    user= snapshot.getValue(User::class.java)!!
+                    binding.userName.setText("Hi "+user.name)
+                }
+                else
+                {
+                    Toast.makeText(applicationContext, "Update Your Info", Toast.LENGTH_SHORT).show()
+                    var intent= Intent(applicationContext,SetUpProfile::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
 
         categoryView()
         recommendedView()
         restaurantView()
+        bottomNavigationView()
 
+    }
+
+    private fun bottomNavigationView() {
+        binding.cartBtn.setOnClickListener {
+            var intent=Intent(this,CartActivity::class.java)
+            startActivity(intent)
+        }
+        binding.homeBtn.setOnClickListener {
+            var intent=Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun recommendedView() {
