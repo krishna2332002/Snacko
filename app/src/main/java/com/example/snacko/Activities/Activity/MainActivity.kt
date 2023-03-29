@@ -84,9 +84,9 @@ class MainActivity : AppCompatActivity() {
         recommendedList= arrayListOf()
         linearLayoutManager2 = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
         binding.recommendedView.layoutManager = linearLayoutManager2
-        recommendedList.add(Food("Pepperoni Pizza","pizza1","Slices Pepperoni, Mozzarella Cheese, Fresh Oregano",100.0,10,20,1000))
-        recommendedList.add(Food("Cheese Burger","burger","Beef, Gouda Cheese, Special sauce",50.0,5,10,400))
-        recommendedList.add(Food("Vegetable Pizza","pizza3","Olive Oil, Vegetable Oil, Cherry Tomato",80.0,6,24,1000))
+        recommendedList.add(Food("Pepperoni Pizza","pizza1","Slices Pepperoni, Mozzarella Cheese, Fresh Oregano","12",100.0,10,20,1000))
+        recommendedList.add(Food("Cheese Burger","burger","Beef, Gouda Cheese, Special sauce","12",50.0,5,10,400))
+        recommendedList.add(Food("Vegetable Pizza","pizza3","Olive Oil, Vegetable Oil, Cherry Tomato","12",80.0,6,24,1000))
         recommendedAdapter=RecommendedAdapter(this,recommendedList)
         binding.recommendedView.adapter = recommendedAdapter
     }

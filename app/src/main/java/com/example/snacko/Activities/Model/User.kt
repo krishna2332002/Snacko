@@ -5,5 +5,5 @@ data class User(
     val name: String? = null,
     val state: String?= null,
     val district: String? = null,
-    val cartList:ArrayList<Food>?=null
+//    val cart:ArrayList<Food>?=null
 )

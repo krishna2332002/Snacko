@@ -20,6 +20,7 @@ class CartActivity : AppCompatActivity() {
     lateinit var cartListAdapter:CartListAdapter
     private lateinit var fauth: FirebaseAuth
     private lateinit var database:DatabaseReference
+    private var totalPrice:Double=0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,28 +29,31 @@ class CartActivity : AppCompatActivity() {
         fauth=FirebaseAuth.getInstance()
         database=FirebaseDatabase.getInstance().reference
         cartFoodList= arrayListOf()
-        linearLayoutManager=LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        linearLayoutManager=LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         binding.cartView.layoutManager=linearLayoutManager
         cartListAdapter=CartListAdapter(this,cartFoodList)
 
         binding.cartView.adapter=cartListAdapter
-        database.child("Profile").child(fauth.currentUser!!.uid).child("cartLis ").addValueEventListener(object :ValueEventListener{
+        database.child("Profile").child(fauth.currentUser!!.uid).child("cart").addValueEventListener(object :ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 cartFoodList.clear()
+                totalPrice=0.0
                 for (dataSnapshot in snapshot.children) {
                     val food = dataSnapshot.getValue(Food::class.java)
                     if (food != null) {
                         cartFoodList.add(food)
+                        totalPrice+=food.numberInCart*food.fee
                     }
                 }
                 cartListAdapter.notifyDataSetChanged()
+                binding.totalFee.setText(totalPrice.toString())
             }
-
             override fun onCancelled(error: DatabaseError) {
 
             }
 
         })
+
         bottomNavigationView()
 
     }

@@ -6,7 +6,7 @@ data class Restaurant(
     val restDescription: String? = null,
     val restAddress: String? = null,
     val restFoodList:ArrayList<Food>?=null,
-    val restIsOpen:Boolean?=null,
+    val restIsOpen:Boolean=false,
     val restRating:Float?=null,
     val restUid:String?=null
 )
