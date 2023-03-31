@@ -1,12 +1,14 @@
 package com.example.snacko.Activities.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.snacko.Activities.Activity.DetailActivity
 import com.example.snacko.Activities.Model.Food
 import com.example.snacko.R
 import com.google.firebase.auth.FirebaseAuth
@@ -63,6 +65,10 @@ class FoodAdapter (
                         }
                     })
                 }
+            }
+            holder.itemView.setOnClickListener{
+                var intent= Intent(context,DetailActivity::class.java)
+                context.startActivity(intent)
             }
         }
     }
